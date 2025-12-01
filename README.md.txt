@@ -88,7 +88,7 @@ gibi işlemler yapılabilmektedir.
 Uygulamanın açıldığında karşılayan ekran.  
 Kullanıcı adı ve şifre alanları ile “Kayıt Ol” ve “Giriş Yap” butonları bulunur.
 
-![Giriş ekranı](docs/giris-ekrani.png)
+![Giriş ekranı](docs/giris_ekrani.png)
 
 ---
 
@@ -97,7 +97,7 @@ Kullanıcı adı ve şifre alanları ile “Kayıt Ol” ve “Giriş Yap” but
 Sol tarafta menü, ortada stok özet bilgileri ve sağda kategori bazlı stok dağılımını gösteren pasta grafik yer alır.  
 Alt kısımda her kategori için kartlar ve bu kategoriye ait toplam stok bilgisi gösterilir.
 
-![Ana ekran](docs/ana-ekran.png)
+![Ana ekran](docs/ana_ekran.png)
 
 ---
 
@@ -107,7 +107,7 @@ Tüm ürünlerin listelendiği ekran.
 Üstte arama alanı, kategori ve alt tür filtreleri; altta ise ürünlerin detaylı olarak bulunduğu tablo vardır.  
 “Bulunan ürün sayısı / toplam stok / kritik stokta ürün sayısı” gibi özetler tablo altında gösterilir.
 
-![Ürün sorgulama ekranı](docs/urun-sorgulama.png)
+![Ürün sorgulama ekranı](docs/urun_sorgulama.png)
 
 ---
 
