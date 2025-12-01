@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tr.com.cicekstok.ui.controller.AltTurSilController"
+            fx:id="rootPane"
+            stylesheets="@giris.css">
+
+    <center>
+        <StackPane BorderPane.alignment="CENTER">
+
+            <!-- Dış kart -->
+            <VBox alignment="TOP_LEFT"
+                  spacing="10"
+                  prefWidth="520" prefHeight="260"
+                  maxWidth="600" maxHeight="320"
+                  styleClass="login-card"
+                  StackPane.alignment="CENTER">
+
+                <padding>
+                    <Insets top="20" left="25" right="25" bottom="20"/>
+                </padding>
+
+                <!-- Başlık + geri -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="← Ana Ekran" onAction="#geriDon"/>
+                    <Label text="Ürün Sil"
+                           styleClass="section-title"/>
+                </HBox>
+
+                <Separator/>
+
+                <!-- İç çerçeve (form) -->
+                <VBox spacing="15" styleClass="form-frame">
+
+                    <GridPane hgap="15" vgap="15">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="120" halignment="RIGHT"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <Label text="Kategori:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="kategoriBox" prefWidth="250"
+                                  GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Ürün:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="altTurBox" prefWidth="250"
+                                  GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Button text="Sil"
+                                onAction="#sil"
+                                style="-fx-font-size: 14px; -fx-padding: 6 20 6 20;"
+                                GridPane.rowIndex="2" GridPane.columnIndex="1"
+                                GridPane.halignment="RIGHT"/>
+                    </GridPane>
+
+                </VBox>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

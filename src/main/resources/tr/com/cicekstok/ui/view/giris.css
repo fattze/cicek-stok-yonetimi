@@ -1,0 +1,152 @@
+/* Tüm sahnelerde kullanılacak arka plan */
+#rootPane {
+    -fx-background-image: url("resimler/giris-arkaplan.jpeg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+/* Ortadaki kart (tüm sayfalarda) */
+.page-card {
+    -fx-background-color: rgba(255, 255, 255, 0.96);
+    -fx-background-radius: 18;
+    -fx-padding: 20 40 30 40;
+    -fx-spacing: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0.2, 0, 4);
+}
+
+/* Başlık, buton vb. hepsi aynı kalsın */
+.app-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e69292;
+}
+
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #555555;
+}
+
+.root {
+    -fx-font-family: "Segoe UI", "Arial";
+}
+
+.text-field, .password-field {
+    -fx-background-radius: 8;
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-padding: 8 10 8 10;
+    -fx-border-color: #CCCCCC;
+    -fx-border-radius: 8;
+}
+
+.button {
+    -fx-background-color: #e69292;
+    -fx-text-fill: white;
+    -fx-background-radius: 20;
+    -fx-padding: 8 18 8 18;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #e69292;
+}
+
+.label {
+    -fx-text-fill: #333333;
+}
+/* Alt tür ekle (ve diğer sayfalar) için iç çerçeve */
+.form-frame {
+    -fx-background-color: rgba(255, 255, 255, 0.98);
+    -fx-background-radius: 12;
+    -fx-border-color: #DDDDDD;
+    -fx-border-radius: 12;
+    -fx-padding: 15 20 20 20;
+
+
+    //-fx-border-color: #C0C0C0;
+    -fx-border-width: 1.2;
+
+}
+/* ANA EKRAN – Sol menü (sidebar) */
+.sidebar {
+    -fx-background-color: #F0F0F0;
+    -fx-padding: 15 10 15 10;
+}
+
+.sidebar-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #555555;
+}
+
+.sidebar-button {
+    -fx-background-radius: 8;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #333333;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 13px;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #E0E0E0;
+}
+
+.sidebar-button-active {
+    -fx-background-color: white;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 1.2;
+}
+
+.sidebar-exit-button {
+    -fx-background-color: #d66f6f;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 10;
+}
+
+/* ANA EKRAN – Orta kart */
+.page-card {
+    -fx-background-color: rgba(255,255,255,0.98);
+    -fx-background-radius: 18;
+    -fx-padding: 20 30 25 30;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 14, 0.2, 0, 4);
+}
+
+/* Kategori kartları */
+.category-card {
+    -fx-background-color: #F7F7F7;
+    -fx-background-radius: 14;
+    -fx-border-color: #DDDDDD;
+    -fx-border-radius: 14;
+    -fx-padding: 15 20 15 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 8, 0.2, 0, 2);
+}
+
+.category-card:hover {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #e69292;
+}
+
+.category-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+/* Kategori ekranındaki ScrollPane odaklanınca mavi çerçeveyi kapat */
+.scroll-pane.kategori-scroll:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-color: transparent;
+}
+
+
+
+/*Açık pembe güller: ffb6c1
+/* Koyu macenta güller: ffe0115f
+/*  Yeşil yapraklar: ff004d40
+
+
+

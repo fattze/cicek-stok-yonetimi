@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tr.com.cicekstok.ui.controller.UrunlerController"
+            prefWidth="900" prefHeight="600">
+
+    <!-- ÜST BAŞLIK -->
+    <top>
+        <Label fx:id="altTurBaslik"
+               text="Ürünler"
+               style="-fx-font-size: 26px; -fx-padding: 20;" />
+    </top>
+
+    <!-- ÜRÜN TABLOSU -->
+    <center>
+        <TableView fx:id="urunTablosu" prefWidth="800">
+
+            <columns>
+                <!-- ID kolonunu gizli tutuyoruz (arka planda kullanılabilir) -->
+                <TableColumn fx:id="idColumn"
+                             text="ID"
+                             visible="false"
+                             prefWidth="0"/>
+
+                <TableColumn fx:id="adKolon"
+                             text="Ad"
+                             prefWidth="180"/>
+
+                <TableColumn fx:id="kategoriKolon"
+                             text="Kategori"
+                             prefWidth="140"/>
+
+                <TableColumn fx:id="altTurKolon"
+                             text="Alt Tür"
+                             prefWidth="140"/>
+
+                <TableColumn fx:id="stokKolon"
+                             text="Stok"
+                             prefWidth="100"/>
+            </columns>
+
+        </TableView>
+    </center>
+
+</BorderPane>

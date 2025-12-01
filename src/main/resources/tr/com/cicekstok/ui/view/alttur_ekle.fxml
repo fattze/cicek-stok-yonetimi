@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tr.com.cicekstok.ui.controller.AltTurEkleController"
+            fx:id="rootPane"
+            stylesheets="@giris.css">
+
+    <center>
+        <StackPane BorderPane.alignment="CENTER">
+
+            <!-- Dıştaki kart (login sayfasındaki gibi) -->
+            <VBox alignment="TOP_LEFT"
+                  spacing="10"
+                  prefWidth="520" prefHeight="380"
+                  maxWidth="600" maxHeight="430"
+                  styleClass="login-card"
+                  StackPane.alignment="CENTER">
+
+                <padding>
+                    <Insets top="20" left="25" right="25" bottom="20"/>
+                </padding>
+
+                <!-- Başlık + geri butonu -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="← Ana Ekran" onAction="#geriDon"/>
+                    <Label text="Yeni Ürün Ekle"
+                           styleClass="section-title"/>
+                </HBox>
+
+                <Separator/>
+
+                <!-- İÇ ÇERÇEVE: form bu kutunun içinde -->
+                <VBox spacing="15" styleClass="form-frame">
+
+                    <GridPane hgap="15" vgap="15">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="120" halignment="RIGHT"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <!-- Kategori seçimi -->
+                        <Label text="Kategori:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="kategoriBox" prefWidth="250"
+                                  GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <!-- Birim seçimi (kategoriye göre) -->
+                        <Label text="Birim:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="birimBox"
+                                  prefWidth="250"
+                                  promptText="Birim seçiniz"
+                                  GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <!-- Yeni alt tür adı -->
+                        <Label text="Yeni Ürünün Adı:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="adField"
+                                   promptText="Örn: Şakayık"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <!-- Resim seçme -->
+                        <Label text="Resim:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <HBox spacing="10" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                            <Button text="Resim Seç" onAction="#resimSec"/>
+                            <Label fx:id="resimLabel" text="Resim seçilmedi"/>
+                        </HBox>
+
+                        <!-- Önizleme -->
+                        <ImageView fx:id="onizlemeResim"
+                                   fitWidth="120"
+                                   preserveRatio="true"
+                                   GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                        <!-- Ekle butonu -->
+                        <Button text="Ekle"
+                                onAction="#ekle"
+                                style="-fx-font-size: 14px; -fx-padding: 6 20 6 20;"
+                                GridPane.rowIndex="5" GridPane.columnIndex="1"
+                                GridPane.halignment="RIGHT"/>
+                    </GridPane>
+
+                </VBox>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

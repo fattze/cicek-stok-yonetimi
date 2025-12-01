@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tr.com.cicekstok.ui.controller.GuncellemeController"
+            fx:id="rootPane"
+            stylesheets="@giris.css">
+
+    <center>
+        <StackPane BorderPane.alignment="CENTER">
+
+            <!-- Dış kart: tüm sayfayı taşıyan panel -->
+            <VBox alignment="TOP_LEFT"
+                  spacing="10"
+                  prefWidth="1000" prefHeight="580"
+                  maxWidth="1100" maxHeight="650"
+                  styleClass="login-card"
+                  StackPane.alignment="CENTER">
+
+                <padding>
+                    <Insets top="20" left="25" right="25" bottom="20"/>
+                </padding>
+
+                <!-- Üst bar: geri + başlık -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Button text="← Ana Ekran" onAction="#geriDon"/>
+                    <Label text="Ürün Güncelleme"
+                           styleClass="section-title"/>
+                </HBox>
+
+                <Separator/>
+
+                <!-- İç layout: solda liste, sağda form -->
+                <HBox spacing="15">
+
+                    <!-- SOL: Ürün listesi kutusu -->
+                    <VBox spacing="10"
+                          styleClass="form-frame"
+                          HBox.hgrow="ALWAYS">
+
+                        <Label text="Ürün Listesi"
+                               style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+                        <HBox spacing="5">
+                            <TextField fx:id="aramaField"
+                                       promptText="Ad ile ara"
+                                       HBox.hgrow="ALWAYS"/>
+                            <Button text="Ara" onAction="#ara"/>
+                        </HBox>
+
+                        <TableView fx:id="urunTablosu"
+                                   prefHeight="520"
+                                   VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="adKolon" text="Ad" prefWidth="170"/>
+                                <TableColumn fx:id="kategoriKolon" text="Kategori" prefWidth="110"/>
+                                <TableColumn fx:id="altTurKolon" text="Alt Tür" prefWidth="120"/>
+                                <TableColumn fx:id="birimKolon" text="Birim" prefWidth="70"/>
+                                <TableColumn fx:id="stokKolon" text="Stok" prefWidth="65"/>
+                                <TableColumn fx:id="notlarKolon" text="Notlar" prefWidth="230"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                    <!-- SAĞ: Güncelleme formu kutusu -->
+                    <VBox spacing="10"
+                          styleClass="form-frame"
+                          prefWidth="360">
+
+                        <GridPane hgap="15" vgap="12">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="140" halignment="RIGHT"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+
+                            <!-- Başlık -->
+                            <Label text="Seçili Ürünü Düzenle"
+                                   style="-fx-font-size: 18px; -fx-font-weight: bold;"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"
+                                   GridPane.columnSpan="2"/>
+
+                            <!-- Ürün Adı -->
+                            <Label text="Ürün Adı:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="adField"
+                                       prefWidth="260"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <!-- Kategori -->
+                            <Label text="Kategori:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="kategoriBox"
+                                      prefWidth="220"
+                                      GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <!-- Alt Tür -->
+                            <Label text="Ürün:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="altTurBox"
+                                      prefWidth="220"
+                                      GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <!-- Birim -->
+                            <Label text="Birim:"
+                                   GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="birimBox"
+                                      prefWidth="220"
+                                      GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                            <!-- Stok -->
+                            <Label text="Stok:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                            <TextField fx:id="stokField"
+                                       prefWidth="120"
+                                       promptText="Örn: 15"
+                                       GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                            <!-- Notlar -->
+                            <Label text="Notlar:"
+                                   GridPane.rowIndex="6" GridPane.columnIndex="0"
+                                   GridPane.valignment="TOP"/>
+                            <TextArea fx:id="notlarField"
+                                      prefRowCount="4"
+                                      prefWidth="260"
+                                      GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                            <!-- Buton -->
+                            <HBox spacing="10" alignment="CENTER_RIGHT"
+                                  GridPane.rowIndex="7" GridPane.columnIndex="1">
+                                <Button text="Güncelle" onAction="#guncelle"
+                                        style="-fx-font-size: 14px; -fx-padding: 6 18;"/>
+                            </HBox>
+
+                        </GridPane>
+                    </VBox>
+
+                </HBox>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

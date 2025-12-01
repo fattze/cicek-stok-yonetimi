@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane" stylesheets="@giris.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.com.cicekstok.ui.controller.SilmeController">
+
+    <center>
+        <StackPane BorderPane.alignment="CENTER">
+
+            <!-- Dış kart -->
+            <VBox alignment="TOP_LEFT" maxHeight="650" maxWidth="1100" prefHeight="580" prefWidth="1000" spacing="10" styleClass="login-card" StackPane.alignment="CENTER">
+
+                <padding>
+                    <Insets bottom="20" left="25" right="25" top="20" />
+                </padding>
+
+                <!-- Üst başlık + geri -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Button onAction="#geriDon" text="← Ana Ekran" />
+                    <Label styleClass="section-title" text="Stok Azalt" />
+                </HBox>
+
+                <Separator />
+
+                <!-- İç çerçeve: SOL tablo + SAĞ form -->
+                <VBox spacing="15" styleClass="form-frame" VBox.vgrow="ALWAYS">
+
+                    <HBox spacing="15">
+
+                        <!-- SOL: Ürün Tablosu -->
+                        <TableView fx:id="urunTablosu" prefHeight="520" prefWidth="560" HBox.hgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="adKolon" prefWidth="140" text="Ad" />
+                                <TableColumn fx:id="kategoriKolon" prefWidth="110" text="Kategori" />
+                                <TableColumn fx:id="altTurKolon" prefWidth="120" text="Ürün" />
+                                <TableColumn fx:id="birimKolon" prefWidth="70" text="Birim" />
+                                <TableColumn fx:id="stokKolon" prefWidth="65" text="Stok" />
+                                <TableColumn fx:id="notKolon" prefWidth="180" text="Notlar" />
+                            </columns>
+                        </TableView>
+
+                        <!-- SAĞ: Stok Azaltma Formu -->
+                        <GridPane hgap="10" prefHeight="438.0" prefWidth="336.0" vgap="15">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" maxWidth="125.6000732421875" minWidth="100.8000244140625" prefWidth="100.8000244140625" />
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="225.5999755859375" minWidth="200.7999267578125" prefWidth="225.5999755859375" />
+                            </columnConstraints>
+
+                            <!-- Başlık -->
+                            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Seçili Üründen Stok Azalt" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+
+                            <!-- Kategori -->
+                            <Label text="Kategori:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <ComboBox fx:id="kategoriBox" prefWidth="220" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                            <!-- Alt Tür -->
+                            <Label text="Ürün:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                            <ComboBox fx:id="altTurBox" prefWidth="220" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                            <!-- Birim -->
+                            <Label text="Birim:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                            <ComboBox fx:id="birimBox" prefWidth="220" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                            <!-- Mevcut Stok -->
+                            <Label text="Mevcut Stok:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                            <Label fx:id="mevcutStokLabel" text="Mevcut stok: -" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                            <!-- Azaltılacak Miktar -->
+                            <Label text="Azaltılacak Miktar:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                            <TextField fx:id="miktarField" promptText="Örn: 5" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                            <!-- Notlar -->
+                            <Label text="Notlar :" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+                            <TextArea fx:id="notlarField" prefRowCount="3" prefWidth="220" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                            <!-- BUTONLAR -->
+                            <HBox alignment="CENTER_RIGHT" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                <Button onAction="#geriDon" text="İptal" />
+                                <Button onAction="#azalt" style="-fx-font-size: 14px; -fx-padding: 6 16;" text="Stok Azalt" />
+                            </HBox>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                        </GridPane>
+
+                    </HBox>
+                </VBox>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

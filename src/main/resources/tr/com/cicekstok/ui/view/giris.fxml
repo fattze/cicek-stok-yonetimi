@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tr.com.cicekstok.ui.controller.GirisController"
+            prefWidth="500" prefHeight="300"
+            fx:id="rootPane"
+            stylesheets="@giris.css">
+
+    <center>
+        <StackPane BorderPane.alignment="CENTER">
+
+            <!-- Dış login kartı -->
+            <VBox alignment="TOP_CENTER"
+                  spacing="10"
+                  prefWidth="420" prefHeight="260"
+                  maxWidth="420" maxHeight="280"
+                  styleClass="login-card"
+                  StackPane.alignment="CENTER">
+
+                <padding>
+                    <Insets top="20" left="30" right="30" bottom="20"/>
+                </padding>
+
+                <!-- Başlıklar -->
+                <Label text="Çiçek Stok Yönetimi"
+                       styleClass="app-title"/>
+
+                <Label text="Giriş Yap"
+                       styleClass="section-title"/>
+
+                <Separator/>
+
+                <!-- İç çerçeve: form -->
+                <VBox spacing="15" styleClass="form-frame">
+
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <Label text="Kullanıcı Adı:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="kullaniciField"
+                                   promptText="Kullanıcı adınızı girin"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Şifre:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <PasswordField fx:id="sifreField"
+                                       promptText="Şifrenizi girin"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <!-- Butonlar -->
+                        <HBox spacing="10"
+                              alignment="CENTER_RIGHT"
+                              GridPane.rowIndex="2"
+                              GridPane.columnIndex="1">
+                            <Button text="Kayıt Ol" onAction="#kayitEkraniAc"/>
+                            <Button text="Giriş Yap" onAction="#girisYap" defaultButton="true"/>
+                        </HBox>
+                    </GridPane>
+
+                </VBox>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

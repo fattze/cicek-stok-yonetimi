@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tr.com.cicekstok.ui.controller.KayitController"
+            fx:id="rootPane"
+            stylesheets="@giris.css"
+            prefWidth="500" prefHeight="320">
+
+    <center>
+        <StackPane BorderPane.alignment="CENTER">
+
+            <!-- Dış kart -->
+            <VBox alignment="TOP_CENTER"
+                  spacing="10"
+                  prefWidth="420" prefHeight="260"
+                  maxWidth="420" maxHeight="280"
+                  styleClass="login-card"
+                  StackPane.alignment="CENTER">
+
+                <padding>
+                    <Insets top="20" left="30" right="30" bottom="20"/>
+                </padding>
+
+                <!-- Başlık -->
+                <Label text="Yeni Kullanıcı Kaydı"
+                       styleClass="section-title"/>
+
+                <Separator/>
+
+                <!-- İç çerçeve: form -->
+                <VBox spacing="15" styleClass="form-frame">
+
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints halignment="RIGHT" minWidth="130"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <Label text="Kullanıcı Adı:"
+                               GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="kullaniciField"
+                                   promptText="Örn: admin"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Şifre:"
+                               GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <PasswordField fx:id="sifreField"
+                                       promptText="Şifre"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Şifre (Tekrar):"
+                               GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <PasswordField fx:id="sifreTekrarField"
+                                       promptText="Şifreyi tekrar girin"
+                                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <HBox spacing="10" alignment="CENTER_RIGHT"
+                              GridPane.rowIndex="3" GridPane.columnIndex="1">
+                            <Button text="İptal" onAction="#geriDon"/>
+                            <Button text="Kayıt Ol" onAction="#kaydol" defaultButton="true"/>
+                        </HBox>
+                    </GridPane>
+
+                </VBox>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

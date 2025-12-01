@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tr.com.cicekstok.ui.controller.AramaController"
+            fx:id="rootPane"
+            stylesheets="@giris.css">
+
+    <center>
+        <StackPane BorderPane.alignment="CENTER">
+
+            <!-- Dış kart -->
+            <VBox alignment="TOP_LEFT"
+                  spacing="10"
+                  prefWidth="1000" prefHeight="550"
+                  maxWidth="1100" maxHeight="650"
+                  styleClass="login-card"
+                  StackPane.alignment="CENTER">
+
+                <padding>
+                    <Insets top="20" left="25" right="25" bottom="20"/>
+                </padding>
+
+                <!-- Başlık + geri -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Button text="← Ana Ekran" onAction="#geriDon"/>
+                    <Label text="Ürün Sorgulama"
+                           styleClass="section-title"/>
+                </HBox>
+
+                <Separator/>
+
+                <!-- İç çerçeve: filtreler + tablo + özet -->
+                <VBox spacing="10" styleClass="form-frame" VBox.vgrow="ALWAYS">
+
+                    <!-- FİLTRE ALANI -->
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="20"/>
+                            <ColumnConstraints percentWidth="30"/>
+                            <ColumnConstraints percentWidth="20"/>
+                            <ColumnConstraints percentWidth="30"/>
+                        </columnConstraints>
+
+                        <!-- Ad ile arama -->
+                        <Label text="Ad içerir:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="adAraField"
+                                   promptText="Örn: gül, orkide"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <!-- Kategori -->
+                        <Label text="Kategori:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="kategoriBox"
+                                  prefWidth="180"
+                                  GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <!-- Alt Tür -->
+                        <Label text="Alt Tür:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                        <ComboBox fx:id="altTurBox"
+                                  prefWidth="180"
+                                  GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                        <!-- Kritik stok -->
+                        <CheckBox fx:id="kritikCheck"
+                                  text="Sadece kritik stokları göster"
+                                  GridPane.rowIndex="2" GridPane.columnIndex="0"
+                                  GridPane.columnSpan="2"/>
+
+                        <!-- Butonlar -->
+                        <HBox spacing="10" alignment="CENTER_RIGHT"
+                              GridPane.rowIndex="2" GridPane.columnIndex="2"
+                              GridPane.columnSpan="2">
+                            <Button text="Filtreleri Temizle" onAction="#filtreleriTemizle"/>
+                            <Button text="Ara" onAction="#filtreUygula"
+                                    style="-fx-font-size: 14px; -fx-padding: 4 16;"/>
+                        </HBox>
+                    </GridPane>
+
+                    <!-- TABLO -->
+                    <TableView fx:id="urunTablosu"
+                               prefHeight="400"
+                               VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="idKolon" text="ID" visible="false" prefWidth="0"/>
+                            <TableColumn fx:id="adKolon" text="Ad" prefWidth="180"/>
+                            <TableColumn fx:id="kategoriKolon" text="Kategori" prefWidth="140"/>
+                            <TableColumn fx:id="altTurKolon" text="Ürün" prefWidth="160"/>
+                            <TableColumn fx:id="birimKolon" text="Birim" prefWidth="80"/>
+                            <TableColumn fx:id="stokKolon" text="Stok" prefWidth="80"/>
+                            <TableColumn fx:id="notKolon" text="Notlar" prefWidth="260"/>
+                        </columns>
+                    </TableView>
+
+                    <!-- ÖZET BİLGİ -->
+                    <Label fx:id="ozetLabel"
+                           text="Bulunan ürün: 0 | Toplam stok: 0 | Kritik stokta ürün: 0"
+                           style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
+                </VBox>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

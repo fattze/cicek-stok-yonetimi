@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tr.com.cicekstok.ui.controller.KategoriController"
+            fx:id="rootPane"
+            stylesheets="@giris.css"
+            prefWidth="900" prefHeight="600">
+
+    <center>
+        <StackPane BorderPane.alignment="CENTER">
+
+            <!-- Dış kart -->
+            <VBox alignment="TOP_LEFT"
+                  spacing="10"
+                  prefWidth="900" prefHeight="520"
+                  maxWidth="1000" maxHeight="620"
+                  styleClass="login-card"
+                  StackPane.alignment="CENTER">
+
+                <padding>
+                    <Insets top="20" left="25" right="25" bottom="20"/>
+                </padding>
+
+                <!-- Üst başlık + geri -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="← Geri" onAction="#geriDon"/>
+                    <Label fx:id="kategoriBaslik"
+                           styleClass="section-title"/>
+                </HBox>
+
+                <Separator/>
+
+                <!-- İç çerçeve: alt tür kartları -->
+                <VBox spacing="10" styleClass="form-frame" VBox.vgrow="ALWAYS">
+
+                    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                        <content>
+                            <FlowPane fx:id="altTurKapsayici"
+                                      hgap="20" vgap="20"
+                                      alignment="CENTER">
+                                <padding>
+                                    <Insets top="20" right="20" bottom="20" left="20"/>
+                                </padding>
+                            </FlowPane>
+                        </content>
+                    </ScrollPane>
+
+                </VBox>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

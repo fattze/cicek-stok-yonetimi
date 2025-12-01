@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<BorderPane fx:id="rootPane" prefHeight="700" prefWidth="1200" stylesheets="@giris.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.com.cicekstok.ui.controller.AnaController">
+
+    <!-- SOL MENÜ (sidebar) -->
+    <left>
+        <VBox prefHeight="744.0" prefWidth="226.0" spacing="8" styleClass="sidebar">
+
+            <padding>
+                <Insets bottom="12" left="12" right="12" top="20" />
+            </padding>
+            <ImageView fitHeight="172.0" fitWidth="205.0">
+                <image>
+                    <Image url="@resimler/logo-p.png" />
+                </image>
+            </ImageView>
+
+            <Label maxWidth="Infinity" prefHeight="55.0" prefWidth="190.0" styleClass="sidebar-title" text="         🏠Ana Ekran" />
+
+            <Button maxWidth="Infinity" onAction="#aramaEkrani" prefHeight="97.0" prefWidth="202.0" styleClass="sidebar-button" text="🔍Sorgula" />
+
+            <Button maxWidth="Infinity" onAction="#eklemeEkrani" prefHeight="92.0" prefWidth="206.0" styleClass="sidebar-button" text="🌸Stok Ekle" />
+
+            <Button maxWidth="Infinity" onAction="#silmeEkrani" prefHeight="82.0" prefWidth="206.0" styleClass="sidebar-button" text="🌹Stok Azalt" />
+
+            <Button maxWidth="Infinity" onAction="#guncellemeEkrani" prefHeight="109.0" prefWidth="206.0" styleClass="sidebar-button" text="🔄Güncelle" />
+
+            <Button maxWidth="Infinity" onAction="#yeniUrunEkrani" prefHeight="82.0" prefWidth="206.0" styleClass="sidebar-button" text="🌼Yeni Ürün Ekle" textFill="#f71818" />
+
+            <Button maxWidth="Infinity" onAction="#altTurSilEkrani" prefHeight="94.0" prefWidth="206.0" styleClass="sidebar-button" text="🗑Ürün Sil" /> <!-- Boşluk doldurucu -->
+
+            <Separator />
+
+            <Button maxWidth="Infinity" onAction="#cikisYap" prefHeight="56.0" prefWidth="170.0" styleClass="sidebar-exit-button" text="Çıkış Yap" />
+        </VBox>
+    </left>
+
+    <!-- ORTA: DASHBOARD KARTI -->
+    <center>
+        <StackPane BorderPane.alignment="CENTER">
+
+            <VBox alignment="TOP_CENTER" maxHeight="680" maxWidth="1050" prefHeight="620" prefWidth="950" spacing="20" styleClass="page-card" StackPane.alignment="CENTER">
+
+                <padding>
+                    <Insets bottom="20" left="25" right="25" top="20" />
+                </padding>
+
+                <!-- BAŞLIK + HOŞGELDİN -->
+                <VBox alignment="CENTER" spacing="5">
+                    <Label prefHeight="30.0" prefWidth="249.0" styleClass="app-title" text="Üçgül Stok Yönetimi">
+                        <textFill>
+                            <LinearGradient endX="1.0" endY="1.0">
+                                <stops>
+                                    <Stop>
+                                        <color>
+                                            <Color red="0.7799999713897705" green="0.38999998569488525" blue="0.6044999957084656" opacity="0.47999998927116394" />
+                                        </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                        <color>
+                                            <Color red="1.0" green="1.0" blue="1.0" />
+                                        </color>
+                                    </Stop>
+                                </stops>
+                            </LinearGradient>
+                        </textFill></Label>
+
+                    <Label fx:id="hosgeldinLabel" style="-fx-font-size: 14px;" text="" />
+                </VBox>
+
+                <!-- ÖZET + PASTA GRAFİK -->
+                <HBox alignment="CENTER" prefHeight="261.0" prefWidth="934.0" spacing="40">
+                    <!-- Sol: metrikler -->
+                    <VBox alignment="CENTER_LEFT" prefHeight="196.0" prefWidth="392.0" spacing="6">
+                        <Label fx:id="toplamStokLabel" prefHeight="57.0" prefWidth="125.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Toplam Stok: 0" />
+
+                        <Label fx:id="kritikTurLabel" prefHeight="52.0" prefWidth="321.0" style="-fx-font-size: 14px;" text="Kritik Stokta Ürün Sayısı: 0" />
+
+                        <Label fx:id="toplamUrunLabel" prefHeight="53.0" prefWidth="266.0" style="-fx-font-size: 14px;" text="Stok Bilgisi Girilmiş Toplam Ürün Sayısı: 0" />
+
+                        <Label fx:id="toplamAltTurLabel" prefHeight="34.0" prefWidth="151.0" style="-fx-font-size: 14px;" text="Toplam Ürün Sayısı: 0" textAlignment="CENTER" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                    </VBox>
+
+                    <!-- Sağ: pasta grafik -->
+                    <PieChart fx:id="stokOzetChart" prefHeight="416.0" prefWidth="656.0" />
+                </HBox>
+
+                <Separator />
+
+                <!-- KATEGORİ KARTLARI -->
+                <VBox alignment="CENTER" spacing="25">
+
+                    <!-- ÜST SATIR: 4 KATEGORİ -->
+                    <HBox alignment="CENTER" spacing="30">
+
+                        <!-- KESME ÇİÇEK -->
+                        <VBox fx:id="kartKesme" alignment="CENTER" onMouseClicked="#kesmeCicekTiklandi" prefHeight="193.0" prefWidth="204.0" spacing="8" styleClass="category-card">
+                            <ImageView fx:id="imgKesme" fitWidth="70" preserveRatio="true" />
+                            <Label styleClass="category-title" text="Kesme Çiçek" />
+                            <Label fx:id="topKesme" text="Stok: 0" />
+                        </VBox>
+
+                        <!-- SAKSI BİTKİSİ -->
+                        <VBox fx:id="kartSaksi" alignment="CENTER" onMouseClicked="#saksiBitkisiTiklandi" prefHeight="140" prefWidth="190" spacing="8" styleClass="category-card">
+                            <ImageView fx:id="imgSaksi" fitWidth="70" preserveRatio="true" />
+                            <Label styleClass="category-title" text="Saksı Bitkisi" />
+                            <Label fx:id="topSaksi" text="Stok: 0" />
+                        </VBox>
+
+                        <!-- AKSESUAR -->
+                        <VBox fx:id="kartAksesuar" alignment="CENTER" onMouseClicked="#aksesuarTiklandi" prefHeight="140" prefWidth="190" spacing="8" styleClass="category-card">
+                            <ImageView fx:id="imgAksesuar" fitWidth="70" preserveRatio="true" />
+                            <Label styleClass="category-title" text="Aksesuar" />
+                            <Label fx:id="topAksesuar" text="Stok: 0" />
+                        </VBox>
+
+                        <!-- DOLGU YEŞİLLİK -->
+                        <VBox fx:id="kartDolgu" alignment="CENTER" onMouseClicked="#dolguYesillikTiklandi" prefHeight="140" prefWidth="190" spacing="8" styleClass="category-card">
+                            <ImageView fx:id="imgDolgu" fitWidth="70" preserveRatio="true" />
+                            <Label styleClass="category-title" text="Dolgu Yeşillik" />
+                            <Label fx:id="topDolgu" text="Stok: 0" />
+                        </VBox>
+                    </HBox>
+
+                    <!-- ALT SATIR: 3 KATEGORİ -->
+                    <HBox alignment="CENTER" spacing="30">
+
+                        <!-- KURUTULMUŞ ÇİÇEK -->
+                        <VBox fx:id="kartKurutulmus" alignment="CENTER" onMouseClicked="#kurutulmusCicekTiklandi" prefHeight="191.0" prefWidth="204.0" spacing="8" styleClass="category-card">
+                            <ImageView fx:id="imgKurutulmus" fitWidth="70" preserveRatio="true" />
+                            <Label styleClass="category-title" text="Kurutulmuş Çiçek" />
+                            <Label fx:id="topKurutulmus" text="Stok: 0" />
+                        </VBox>
+
+                        <!-- HEDİYELİK -->
+                        <VBox fx:id="kartHediyelik" alignment="CENTER" onMouseClicked="#hediyelikTiklandi" prefHeight="140" prefWidth="190" spacing="8" styleClass="category-card">
+                            <ImageView fx:id="imgHediyelik" fitWidth="70" preserveRatio="true" />
+                            <Label styleClass="category-title" text="Hediyelik" />
+                            <Label fx:id="topHediyelik" text="Stok: 0" />
+                        </VBox>
+
+                        <!-- HAZIR ÜRÜN -->
+                        <VBox fx:id="kartHazir" alignment="CENTER" onMouseClicked="#hazirUrunTiklandi" prefHeight="140" prefWidth="190" spacing="8" styleClass="category-card">
+                            <ImageView fx:id="imgHazir" fitWidth="70" preserveRatio="true" />
+                            <Label styleClass="category-title" text="Hazır Ürün" />
+                            <Label fx:id="topHazir" text="Stok: 0" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>
